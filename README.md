@@ -3,7 +3,7 @@
 Editez ce fichier pour y indiquer le numéro et les noms de tous les membres de votre groupe.
 
 Raffraichissez vos connaissances sur les tris rapide et par base 
- * [tri rapide (1)](https://youtu.be/xGl-VBmKr2E)
+ * [tri rapide (1)](https://youtu.be/bt-dSrYrocw)
  * [tri rapide (2)](https://youtu.be/0sZIuljHSA4)
  * [tri par base](https://youtu.be/PRCFq2LBEk8)
 
