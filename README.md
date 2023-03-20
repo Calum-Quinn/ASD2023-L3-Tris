@@ -1,6 +1,12 @@
 # ASD Labo 3 : Tris
 
-Editez ce fichier pour y indiquer le numéro et les noms de tous les membres de votre groupe.
+Labo_03_???????????????????????? :
+
+Dario Vasques
+
+Ewan Mariaux
+
+Calum Quinn
 
 Raffraichissez vos connaissances sur les tris rapide et par base 
  * [tri rapide (1)](https://youtu.be/bt-dSrYrocw)
