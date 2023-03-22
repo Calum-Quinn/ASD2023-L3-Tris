@@ -53,14 +53,13 @@ void tri_par_base(Iterator first, Iterator last) {
 
     unsigned max = *max_element(first,last);
 
+    for (unsigned i = max; i > 0; --i) {
+        tri_comptage(first,last, cle<unsigned>(NBITS),last - first);
+    }
+
     //Pseudo code
 //    fonction triParBase(T, d):
 //    Pour i allant de d à 1
-//for (int i = d; i > 0; --i) {
-//
-//}
-//    Trier avec un tri
-//    stable le tableau T
-//    selon le i-ème chiffre
+//      Trier avec un tri stable le tableau T selon le i-ème chiffre
 
 }
