@@ -18,10 +18,11 @@ Compilateurs   : Apple clang version 14.0.0 (clang-1400.0.29.102) (Dario)
 template<typename Iterator, typename Fn>
 void tri_comptage(Iterator first, Iterator last, Iterator output_first, Fn index_fn, size_t N);
 
-template<typename T>
-size_t cle(T n);
+unsigned cle(unsigned n, unsigned pos);
 
 template<typename Iterator, size_t NBITS>
 void tri_par_base(Iterator first, Iterator last);
+
+#include "tri_par_base_impl.h"
 
 #endif
