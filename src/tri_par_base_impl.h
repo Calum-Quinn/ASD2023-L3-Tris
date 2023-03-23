@@ -32,54 +32,70 @@ void tri_comptage(Iterator first, Iterator last, Iterator output_first, Fn index
 //    fonction TriComptage(A,n,b,clé):
 //      b c'est le nombre de compteurs (donc 10 -> 0-9)
 //    C ← tableau de b compteurs à zéro
-    vector<unsigned> compteurs(10);
-//    pour tout e dans A
-    for(Iterator i = first; i <= last; ++i){
-        //    C[clé(e)] += 1
-        compteurs[index_fn(*i, N)] += 1;
+    vector<unsigned> compteurs(N);
+
+    for (Iterator i = 0; i < last; ++i) {
+        auto fn = SomeBits<unsigned long long>(N, i);
+        *(output_first + i) = cle(fn(*(first + i)));
     }
 
-    //*(output_first + 1) = index_fn(*i, N);
-//    idx ← 1
-unsigned index = 1;
-unsigned temp;
-//    pour i de 1 à b
-    for(size_t i = 0; i < compteurs.size(); ++i) {
-        //    tmp ← C[i]
-        temp = compteurs[i];
-        //    C[i] ← idx
-        compteurs[i] = index;
-        //    idx += tmp
-        index += temp;
-    }
 
-//    B = tableau de même taille que A
-//    pour tout e dans A
- for (Iterator nombres = first; nombres <= last; ++nombres) {
-     //    B[C[clé(e)]] ← déplacer e
-     *(output_first + compteurs[index_fn(*nombres,N)] - 1) = *nombres;
-     //    C[clé(e)] += 1
-     ++compteurs[index_fn(*nombres,N)];
- }
+
+
+////    pour tout e dans A
+//    for(Iterator i = first; i <= last; ++i){
+//        //    C[clé(e)] += 1
+//        compteurs[index_fn(*i, N)] += 1;
+//    }
+
+//    //*(output_first + 1) = index_fn(*i, N);
+////    idx ← 1
+//unsigned index = 1;
+//unsigned temp;
+////    pour i de 1 à b
+//    for(size_t i = 0; i < compteurs.size(); ++i) {
+//        //    tmp ← C[i]
+//        temp = compteurs[i];
+//        //    C[i] ← idx
+//        compteurs[i] = index;
+//        //    idx += tmp
+//        index += temp;
+//    }
+//
+////    B = tableau de même taille que A
+////    pour tout e dans A
+// for (Iterator nombres = first; nombres <= last; ++nombres) {
+//     //    B[C[clé(e)]] ← déplacer e
+//     *(output_first + compteurs[index_fn(*nombres,N)] - 1) = *nombres;
+//     //    C[clé(e)] += 1
+//     ++compteurs[index_fn(*nombres,N)];
+// }
 }
 
 template<typename Iterator, size_t NBITS>
 void tri_par_base(Iterator first, Iterator last) {
 
-    vector<unsigned> sortie(last - first);
-
     using T = typename Iterator::value_type;
     static_assert(is_unsigned<T>::value);
-    unsigned max = *max_element(first,last);
 
-    size_t digits = size_t(log10(max) + 1);
 
-    for (unsigned i = 0; i <= digits; --i) {
-        tri_comptage(first,last, sortie.begin(), cle,i);
-        for (Iterator j = first; j <= last; ++j) {
-            *j = sortie[j];
-        }
-    }
+    vector<unsigned> sortie(last - first);
+
+//    tri_comptage(first, last, sortie.begin(), cle, numeric_limits<T>::digits / NBITS);
+
+
+
+
+//    unsigned max = *max_element(first,last);
+//
+//    size_t digits = size_t(log10(max) + 1);
+//
+//    for (unsigned i = 1; i <= digits; --i) {
+//        tri_comptage(first,last, sortie.begin(), cle,i);
+//        for (int j = 0; j < last - first; ++j) {
+//            *(first + j) = sortie[j];
+//        }
+//    }
 
     //Pseudo code
 //    fonction triParBase(T, d):

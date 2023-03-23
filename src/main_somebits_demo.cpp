@@ -38,11 +38,13 @@ int main() {
 
 
 
+
+
     vector<unsigned> vec = {93, 45, 23, 76, 34, 0, 110, 67, 54};
     vector<unsigned> sortie(7);
 
-    //tri_comptage<vector<unsigned>::iterator>(vec.begin(),vec.end() - 1, sortie.begin(), cle, 1);
-    //tri_par_base<vector<unsigned>::iterator,8>(vec.begin(),vec.end() - 1);
+//    tri_comptage<vector<unsigned>::iterator>(vec.begin(),vec.end() - 1, sortie.begin(), cle, 1);
+    tri_par_base<vector<unsigned>::iterator,8>(vec.begin(),vec.end() - 1);
 
     for (unsigned i : sortie) {
         cout << i << " ";
