@@ -10,16 +10,16 @@ using ui = unsigned int;
 
 int main() {
 
-    ui n; cin >> n;
-
-    for(unsigned nbits : { 1u, 2u, 4u, 8u, 16u }) {
-        cout << nbits << " : ";
-        for (unsigned i = 0; i < numeric_limits<ui>::digits / nbits ; ++i ) {
-            auto fn = SomeBits<unsigned long long>(nbits, i);
-            cout << fn(n) << " ";
-        }
-        cout << endl;
-    }
+//    ui n; cin >> n;
+//
+//    for(unsigned nbits : { 1u, 2u, 4u, 8u, 16u }) {
+//        cout << nbits << " : ";
+//        for (unsigned i = 0; i < numeric_limits<ui>::digits / nbits ; ++i ) {
+//            auto fn = SomeBits<unsigned long long>(nbits, i);
+//            cout << fn(n) << " ";
+//        }
+//        cout << endl;
+//    }
 
     vector<int> v = {1 ,3, 4, 2, 9, 5, 11, 8, 6, 7};
 
@@ -41,12 +41,9 @@ int main() {
 
 
     vector<unsigned> vec = {93, 45, 23, 76, 34, 0, 110, 67, 54};
-    vector<unsigned> sortie(7);
+    tri_par_base<vector<unsigned>::iterator,2>(vec.begin(),vec.end() - 1);
 
-//    tri_comptage<vector<unsigned>::iterator>(vec.begin(),vec.end() - 1, sortie.begin(), cle, 1);
-    tri_par_base<vector<unsigned>::iterator,8>(vec.begin(),vec.end() - 1);
-
-    for (unsigned i : sortie) {
+    for (unsigned i : vec) {
         cout << i << " ";
     }
 

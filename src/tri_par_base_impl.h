@@ -18,58 +18,30 @@ Compilateurs   : Apple clang version 14.0.0 (clang-1400.0.29.102) (Dario)
 
 using namespace std;
 
-unsigned cle(unsigned n, unsigned pos){
-    unsigned digit;
-    // Mettre la valeur voulue en dernière position
-    n /= unsigned (pow(10.,double(pos - 1)));
-    digit = n % 10;
-    return digit;
-}
-
 template<typename Iterator, typename Fn>
 void tri_comptage(Iterator first, Iterator last, Iterator output_first, Fn index_fn, size_t N) {
-    //Pseudo code
-//    fonction TriComptage(A,n,b,clé):
-//      b c'est le nombre de compteurs (donc 10 -> 0-9)
-//    C ← tableau de b compteurs à zéro
-    vector<unsigned> compteurs(N);
+    //Vecteur de compteurs, selon le nombre de bits dans chaque bloc
+    vector<unsigned> compteurs(size_t(pow(2,N)));
+    unsigned index;
+    unsigned temporaire;
 
-    for (Iterator i = 0; i < last; ++i) {
-        auto fn = SomeBits<unsigned long long>(N, i);
-        *(output_first + i) = cle(fn(*(first + i)));
+    //Augmente les compteurs selon la valeur du premier bloc de bits de chaque valeur
+    for (Iterator i = first; i <= last; ++i) {
+        ++compteurs[index_fn(*i)];
     }
 
+    index = 1;
 
+    for (size_t i = 0; i < 10; ++i) {
+        temporaire = compteurs[i];
+        compteurs[i] = index;
+        index += temporaire;
+    }
 
-
-////    pour tout e dans A
-//    for(Iterator i = first; i <= last; ++i){
-//        //    C[clé(e)] += 1
-//        compteurs[index_fn(*i, N)] += 1;
-//    }
-
-//    //*(output_first + 1) = index_fn(*i, N);
-////    idx ← 1
-//unsigned index = 1;
-//unsigned temp;
-////    pour i de 1 à b
-//    for(size_t i = 0; i < compteurs.size(); ++i) {
-//        //    tmp ← C[i]
-//        temp = compteurs[i];
-//        //    C[i] ← idx
-//        compteurs[i] = index;
-//        //    idx += tmp
-//        index += temp;
-//    }
-//
-////    B = tableau de même taille que A
-////    pour tout e dans A
-// for (Iterator nombres = first; nombres <= last; ++nombres) {
-//     //    B[C[clé(e)]] ← déplacer e
-//     *(output_first + compteurs[index_fn(*nombres,N)] - 1) = *nombres;
-//     //    C[clé(e)] += 1
-//     ++compteurs[index_fn(*nombres,N)];
-// }
+    for (Iterator i = first; i <= last; ++i) {
+        *(output_first + compteurs[index_fn(*i)] - 1) = *i;
+        ++compteurs[index_fn(*i)];
+    }
 }
 
 template<typename Iterator, size_t NBITS>
@@ -78,30 +50,19 @@ void tri_par_base(Iterator first, Iterator last) {
     using T = typename Iterator::value_type;
     static_assert(is_unsigned<T>::value);
 
+    vector<unsigned> sortie(last - first + 1);
 
-    vector<unsigned> sortie(last - first);
+    for (int i = 0; i < numeric_limits<unsigned>::digits / NBITS; ++i) {
 
-//    tri_comptage(first, last, sortie.begin(), cle, numeric_limits<T>::digits / NBITS);
+        cout << "Trie deja " << i << " fois" << endl;
 
+        auto fn = SomeBits<unsigned long long>(NBITS, i);
+        tri_comptage(first, last, sortie.begin(), fn, NBITS);
 
-
-
-//    unsigned max = *max_element(first,last);
-//
-//    size_t digits = size_t(log10(max) + 1);
-//
-//    for (unsigned i = 1; i <= digits; --i) {
-//        tri_comptage(first,last, sortie.begin(), cle,i);
-//        for (int j = 0; j < last - first; ++j) {
-//            *(first + j) = sortie[j];
-//        }
-//    }
-
-    //Pseudo code
-//    fonction triParBase(T, d):
-//    Pour i allant de d à 1
-//      Trier avec un tri stable le tableau T selon le i-ème chiffre
-
+        for (Iterator j = sortie.begin(); j < sortie.end(); ++j) {
+            *(first + (j - sortie.begin())) = *j;
+        }
+    }
 }
 
 #endif //ASD_LABOS_2021_TRI_PAR_BASE_IMPL_H
