@@ -11,12 +11,16 @@ int main() {
 
    //-------------------
    // Test Tri Rapide
-   cout << "###########TRI RAPIDE###########" << endl;
+   cout << "######################" << endl;
+   cout << "######TRI RAPIDE######" << endl;
+   cout << "######################" << endl;
+
    vector<int> v = {1 ,3, 4, 2, 9, 5, 11, 8, 6, 7};
 
    for(int i : v){
       cout << i << " ";
    }
+
    cout << endl;
 
    tri_rapide<vector<int>::iterator>(v.begin(), v.end() -1);
@@ -28,9 +32,11 @@ int main() {
 
    //-------------------
    // Test Tri par base
-   cout << "###########TRI PAR BASE###########" << endl;
+   cout << "######################" << endl;
+   cout << "#####TRI PAR BASE#####" << endl;
+   cout << "######################" << endl;
 
-   vector<unsigned> vec = {93, 45, 23, 76, 34, 0, 110, 67, 54};
+   vector<unsigned> vec = {93, 45, 23, 143, 34, 0, 110, 67, 54, 76, 174};
 
    for (unsigned i : vec) {
       cout << i << " ";
