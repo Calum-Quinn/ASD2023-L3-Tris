@@ -10,31 +10,27 @@ using namespace std;
 
 int main() {
    vector<unsigned> vec = {93, 45, 23, 143, 34, 0, 110, 67, 54, 76, 174};
-   vector<int> vec1 = {93, 45, 23, 143, 34, 0, 110};
+   vector<int> vec1 = {4, 7, 3, 2, 1};
 
-   for(int i : vec1){
-      cout << i << " ";
-   }
+   // Test de la rapidité du Tri Rapide
+   cout << "######################" << endl;
+   cout << "######TRI RAPIDE######" << endl;
+   cout << "######################" << endl;
 
-   cout << endl;
-
-   //cout << mesure_temps(vec1, tri_rapide<vector<unsigned>::iterator>);
-   //tri_rapide<vector<int>::iterator>(vec1.begin(), vec1.end() - 1);
-    cout << mesure_temps(vec1, tri_rapide<vector<int>::iterator>);
-
-   cout << endl;
-
-   for(int i : vec1){
-      cout << i << " ";
-   }
+   cout  << "Temps d'exécution : "
+         << mesure_temps(vec1, tri_rapide<vector<int>::iterator>)
+         << " ms";
 
    cout << endl << endl;
 
+   // Test de la rapidité du Tri par base
    cout << "######################" << endl;
    cout << "#####TRI PAR BASE#####" << endl;
    cout << "######################" << endl;
 
-   cout << mesure_temps(vec, tri_par_base<vector<unsigned>::iterator, 3>);
+   cout  << "Temps d'exécution : "
+         << mesure_temps(vec, tri_par_base<vector<unsigned>::iterator, 3>)
+         << " ms";
 
    return 0;
 }
