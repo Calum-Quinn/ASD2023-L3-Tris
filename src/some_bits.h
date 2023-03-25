@@ -1,6 +1,8 @@
 #ifndef SOME_BITS
 #define SOME_BITS
 
+#include <stddef.h>
+
 template<typename T>
 class SomeBits {
     size_t shift;

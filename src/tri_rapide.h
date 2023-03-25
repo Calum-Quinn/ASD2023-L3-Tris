@@ -17,4 +17,6 @@ Iterator partition(Iterator first, Iterator last);
 template<typename Iterator>
 void tri_rapide(Iterator first, Iterator last);
 
+#include "tri_rapide_impl.h"
+
 #endif
