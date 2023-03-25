@@ -15,7 +15,7 @@ int main() {
    cout << "######TRI RAPIDE######" << endl;
    cout << "######################" << endl;
 
-   vector<int> v = {1 ,3, 4, 2, 9, 5, 11, 8, 6, 7};
+   vector<int> v = {1 ,3, 4, 2, 9, 5, 11, 8, 6, 7,0,10,12,50,-1,80,8};
 
    for(int i : v){
       cout << i << " ";

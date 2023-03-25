@@ -33,7 +33,7 @@ Iterator partition(Iterator first, Iterator last) {
 
     Iterator p = last;
     Iterator i = first;
-    Iterator j = last;
+    Iterator j = last -1;
 
     while(true){
         //avancer i
@@ -41,12 +41,13 @@ Iterator partition(Iterator first, Iterator last) {
             ++i;
 
         //reculer j
-        while(j - first >= 0 and *j > *p)
+        while(j - first >= 0 and *j > *p) {
             --j;
-
+        }
         //indice rejoints ou croisés
-        if(j - i >= 0)
+        if(j - i <= 0) {
             break;
+        }
 
         //échanger les valeurs
         swap(*i, *j);

@@ -20,7 +20,7 @@ double mesure_temps(std::vector<T>& v1, Fn f) {
    std::chrono::duration<double, std::milli> time_ms = t2 - t1;
 
    //Test si le vecteur est bien trié
-   std::cout << std::boolalpha << std::is_sorted(v1.begin(), v1.end()) << std::endl;
+   std::cout << std::boolalpha << is_sorted(v1.begin(), v1.end()) << std::endl;
 
    return (double)time_ms.count();
 }

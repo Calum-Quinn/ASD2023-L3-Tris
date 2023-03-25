@@ -19,7 +19,8 @@ int main() {
    cout << endl;
 
    //cout << mesure_temps(vec1, tri_rapide<vector<unsigned>::iterator>);
-   tri_rapide<vector<int>::iterator>(vec1.begin(), vec1.end() - 1);
+   //tri_rapide<vector<int>::iterator>(vec1.begin(), vec1.end() - 1);
+    cout << mesure_temps(vec1, tri_rapide<vector<int>::iterator>);
 
    cout << endl;
 
