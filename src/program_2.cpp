@@ -32,5 +32,5 @@ int main() {
          << mesure_temps(vec, tri_par_base<vector<unsigned>::iterator, 3>)
          << " ms";
 
-   return 0;
+   return EXIT_SUCCESS;
 }
