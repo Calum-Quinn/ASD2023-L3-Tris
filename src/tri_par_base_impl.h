@@ -54,7 +54,7 @@ void tri_par_base(Iterator first, Iterator last) {
 
     for (int i = 0; i < numeric_limits<unsigned>::digits / NBITS; ++i) {
 
-        cout << "Trie deja " << i << " fois" << endl;
+       // cout << "Trie deja " << i << " fois" << endl;
 
         auto fn = SomeBits<unsigned long long>(NBITS, i);
         tri_comptage(first, last, sortie.begin(), fn, NBITS);

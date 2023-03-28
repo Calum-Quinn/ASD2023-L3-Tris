@@ -14,18 +14,12 @@ Compilateurs   : Apple clang version 14.0.0 (clang-1400.0.29.102) (Dario)
 
 
 #include "tri_rapide.h"
+#include "annexe.h"
 #include <random>
 
 using namespace std;
 
-random_device                  rand_dev;
-default_random_engine          generator(rand_dev());
 
-int nbrAleatoire(int min, int max){
-
-    uniform_int_distribution<int>  distr(min, max);
-    return distr(generator);
-}
 
 
 template<typename Iterator>
@@ -56,37 +50,6 @@ Iterator partition(Iterator first, Iterator last) {
     swap(*i, *p);
 
     return i;
-
-
-//    template <typename T>
-//    int partition (T tableau[], int debut, int fin) {
-//
-//        int p = fin;
-//        int i = debut;
-//        int j = p-1;
-//
-//        while(true) {
-//            // avancer i
-//            while (tableau[i] < tableau[p])
-//                ++i;
-//
-//            // reculer j
-//            while (debut <= j and tableau[j] > tableau[p])
-//                --j;
-//
-//            // indices rejoints ou croisés
-//            if (i >= j)
-//                break;
-//
-//            // échanger les valeurs
-//            swap(tableau[i], tableau[j]);
-//        }
-//
-//        // mettre la valeur de pivot à sa place
-//        swap(tableau[i], tableau[p]);
-//
-//        return i;
-//    }
 }
 
 template<typename Iterator>

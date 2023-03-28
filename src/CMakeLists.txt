@@ -6,6 +6,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wconversion -Wsign-conver
 
 add_executable(L3-demo main_somebits_demo.cpp)
 
-add_executable(program_1 program_1.cpp tri_par_base.h tri_rapide.h)
+add_executable(program_1 program_1.cpp tri_par_base.h tri_rapide.h annexe.h annexe_impl.h)
 
-add_executable(program_2 program_2.cpp tri_par_base.h tri_rapide.h mesure_impl.h mesure.h)
+add_executable(program_2 program_2.cpp tri_par_base.h tri_rapide.h mesure_impl.h mesure.h annexe.h annexe_impl.h)
