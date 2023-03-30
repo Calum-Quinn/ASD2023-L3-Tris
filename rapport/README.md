@@ -12,7 +12,7 @@ Le tri par base sera divisé par groupe de 1, 2, 4, 8 et 10 bits.
 
 Quand il est trié par le tri rapide, il ....
 
-![croissant](svg/vecteurs_croissant.svg)
+![croissant](svg/vecteurs_croissants.svg)
 
 
 ### Vecteur décroissant
