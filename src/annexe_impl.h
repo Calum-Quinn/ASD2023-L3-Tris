@@ -81,7 +81,11 @@ void exporter_csv(std::string const& filename, const std::vector<int>& n_values,
     for(size_t i = 0; i < mesures.size(); ++i) {
         switch (i) {
             case 0 : out << "TriRapide"; break;
-            case 1 : out << "TriParBase"; break;
+            case 1 : out << "TriParBase 1 bit"; break;
+            case 2 : out << "TriParBase 2 bits"; break;
+            case 3 : out << "TriParBase 4 bits"; break;
+            case 4 : out << "TriParBase 8 bits"; break;
+            case 5 : out << "TriParBase 16 bits"; break;
             default: break;
         }
 

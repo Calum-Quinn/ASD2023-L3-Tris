@@ -28,35 +28,37 @@ int main() {
     const int NBRETYPEVECTEURS = 4;
     const size_t NBREBITMIN = 0;
     const size_t NBREBITMAX = 4;
+    const unsigned SEED = 67;
 
-    const unsigned seed = 67;
-
-    vector<unsigned> vec = {93, 45, 23, 143, 34, 0, 110, 67, 54, 76, 174};
-    vector<int> vec1 = {4, 7, 3, 2, 1};
+    //Vecteurs pour emregistrer les résultats des mesures
+    vector<int> valeurs(TAILLEFIN - TAILLEDEBUT + 1);
+    vector<vector<double>> mesures (6);
 
     // Test de la rapidité du Tri Rapide
     cout << "######################" << endl;
     cout << "######TRI RAPIDE######" << endl;
     cout << "######################" << endl;
 
-    cout << "Temps d'execution : "
-         << mesure_temps(vec1, tri_rapide<vector<int>::iterator>)
-         << " ms";
-
     for (int i = 0; i < NBRETYPEVECTEURS; ++i) {
         for (int n = TAILLEDEBUT; n < TAILLEFIN; ++n) {
-            vector<unsigned> vTriRapide = generateVector<unsigned>((size_t)pow(10.,(double)n), seed, typeTri(i));
-            double rapide = mesure_temps(vTriRapide, tri_rapide<vector<unsigned>::iterator>);
 
-            vector<unsigned> vTriBase = generateVector<unsigned>((size_t)pow(10.,(double)n), seed, typeTri(i));
+            valeurs[size_t(n - 1)] = (unsigned)pow(10.,(double)n);
 
-            double base = mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 1>);
-            double base1 = mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 2>);
-            double base2 = mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 4>);
-            double base3 = mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 8>);
-            double base4 = mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 16>);
+            vector<unsigned> vTriRapide = generateVector<unsigned>((size_t)pow(10.,(double)n), SEED, typeTri(i));
+            mesures[0].push_back(mesure_temps(vTriRapide, tri_rapide<vector<unsigned>::iterator>));
+
+            vector<unsigned> vTriBase = generateVector<unsigned>((size_t)pow(10.,(double)n), SEED, typeTri(i));
+
+            //Effectue les mesures pour les différentes taille de bloc de bits
+            mesures[1].push_back(mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 1>));
+            mesures[2].push_back(mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 2>));
+            mesures[3].push_back(mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 4>));
+            mesures[4].push_back(mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 8>));
+            mesures[5].push_back(mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 16>));
         }
     }
+
+    exporter_csv<double>("C:/Users/calum/OneDrive/Documents/Etudes/HEIG/Semestre2/ASD/Laboratoires/ASD2023-L3-Tris/rapport/csv/example.csv",valeurs,mesures);
 
     cout << endl << endl;
 
