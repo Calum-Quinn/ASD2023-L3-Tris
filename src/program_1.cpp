@@ -16,14 +16,11 @@ Compilateurs   : Apple clang version 14.0.0 (clang-1400.0.29.102) (Dario)
 
 using namespace std;
 
-
-
-
 int main() {
 
-   const unsigned seed = 67;
+    const unsigned seed = 67;
 
-
+    //Génération des vecteurs à triés avec différents remplissages
     vector<vector<unsigned>> vecteurs = {
             generateVector<unsigned>(100, seed, typeTri::CROISSANT),
             generateVector<unsigned>(100, seed, typeTri::DECROISSANT),
@@ -70,7 +67,6 @@ int main() {
    cout << "######################" << endl;
    cout << "#####TRI PAR BASE#####" << endl;
    cout << "######################" << endl;
-
 
    cout << endl;
 
