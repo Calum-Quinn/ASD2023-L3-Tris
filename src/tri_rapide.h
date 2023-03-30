@@ -11,9 +11,27 @@ Compilateurs   : Apple clang version 14.0.0 (clang-1400.0.29.102) (Dario)
 #ifndef TRI_RAPIDE
 #define TRI_RAPIDE
 
+/**
+ * @name 	            : partition
+ *
+ * @but 	            : partitionne un vecteur selon un pivot aléatoire (petits à gauche et grands à droite)
+ * @param first         : iterateur du premier élément du vecteur à trier
+ * @param last          : iterateur du dernier élément du vecteur à trier
+ * @return              : iterateur du pivot après placement
+ * @throws              : NIL
+ */
 template<typename Iterator>
 Iterator partition(Iterator first, Iterator last);
 
+/**
+ * @name 	            : tri_rapide
+ *
+ * @but 	            : tri un vecteur en appelant récursivement partition selon un pivot aléatoire
+ * @param first         : iterateur du premier élément du vecteur à trier
+ * @param last          : iterateur du dernier élément du vecteur à trier
+ * @return              : void
+ * @throws              : NIL
+ */
 template<typename Iterator>
 void tri_rapide(Iterator first, Iterator last);
 

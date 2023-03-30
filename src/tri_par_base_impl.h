@@ -47,11 +47,13 @@ void tri_comptage(Iterator first, Iterator last, Iterator output_first, Fn index
 template<typename Iterator, size_t NBITS>
 void tri_par_base(Iterator first, Iterator last) {
 
+    //Contrôle que ce soit des unsigned dans les vecteurs
     using T = typename Iterator::value_type;
     static_assert(is_unsigned<T>::value);
 
     vector<unsigned> sortie(last - first + 1);
 
+    //Appel le tri comptage pour chaque bloc de bits
     for (int i = 0; i < numeric_limits<unsigned>::digits / NBITS; ++i) {
 
        // cout << "Trie deja " << i << " fois" << endl;
@@ -59,6 +61,7 @@ void tri_par_base(Iterator first, Iterator last) {
         auto fn = SomeBits<unsigned long long>(NBITS, i);
         tri_comptage(first, last, sortie.begin(), fn, NBITS);
 
+        //Remet les valeurs sorties dans le vecteur donné
         for (Iterator j = sortie.begin(); j < sortie.end(); ++j) {
             *(first + (j - sortie.begin())) = *j;
         }

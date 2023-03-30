@@ -35,7 +35,7 @@ Iterator partition(Iterator first, Iterator last) {
             ++i;
 
         //reculer j
-        while(j - first >= 0 and *j > *p) {
+        while(j - first >= 0 and *j >= *p) {
             --j;
         }
         //indice rejoints ou croisés
@@ -55,7 +55,7 @@ Iterator partition(Iterator first, Iterator last) {
 template<typename Iterator>
 void tri_rapide(Iterator first, Iterator last) {
 
-    Iterator p; //pivot
+    Iterator p; //Pivot
 
     while(last - first > 0) {
 
