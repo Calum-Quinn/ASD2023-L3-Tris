@@ -8,6 +8,15 @@ Le tri par base sera divisé par groupe de 1, 2, 4, 8 et 10 bits.
 
 ## Analyse
 
+### Vecteur croissant
+
+Quand il est trié par le tri rapide, il ....
+
+### Vecteur décroissant
+
+### Vecteur aléatoire
+
+### Vecteur presque trié
 
 
 ## Conclusion
