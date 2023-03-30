@@ -1,15 +1,22 @@
 # L3 - Tris
 
-Editez ce fichier au format [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) pour y écrire 
-votre rapport. 
+## Introduction
 
-Il peut être divisé un plusieurs fichiers mais README.md doit en être le point d'entrée. 
+Le but de ce rapport est de comparer la rapidité d'exécution du tri rapide et du tri par base avec des vecteurs générés aléatoirement d'une taille exponentielle logarithmique allant jusqu'à 1'000'000 d'éléments.
 
-Il doit inclure un lien vers les données au format csv produites par votre code. Le fichier [example.csv](csv/example.csv) 
-vous en fournit un exemple.
+Le tri par base sera divisé par groupe de 1, 2, 4, 8 et 10 bits.
 
-Il doit inclure le graphique au format svg produit - par exemple par excel - à partir de ces 
-données et illustrant votre analyse, comme l'exemple ci-dessous.
+## Analyse
 
-![example](svg/example.svg)
+### Vecteur croissant
 
+Quand il est trié par le tri rapide, il ....
+
+### Vecteur décroissant
+
+### Vecteur aléatoire
+
+### Vecteur presque trié
+
+
+## Conclusion
