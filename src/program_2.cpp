@@ -22,8 +22,17 @@ Compilateurs   : Apple clang version 14.0.0 (clang-1400.0.29.102) (Dario)
 using namespace std;
 
 int main() {
-   vector<unsigned> vec = {93, 45, 23, 143, 34, 0, 110, 67, 54, 76, 174};
-   vector<int> vec1 = {4, 7, 3, 2, 1};
+
+    const int TAILLEDEBUT = 1;
+    const int TAILLEFIN = 6;
+    const int NBRETYPEVECTEURS = 4;
+    const size_t NBREBITMIN = 0;
+    const size_t NBREBITMAX = 4;
+
+    const unsigned seed = 67;
+
+    vector<unsigned> vec = {93, 45, 23, 143, 34, 0, 110, 67, 54, 76, 174};
+    vector<int> vec1 = {4, 7, 3, 2, 1};
 
     // Test de la rapidité du Tri Rapide
     cout << "######################" << endl;
@@ -51,5 +60,5 @@ int main() {
 
     cout << endl << endl;
 
-   return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
