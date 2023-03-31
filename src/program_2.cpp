@@ -29,6 +29,12 @@ int main() {
     const size_t NBREBITMIN = 0;
     const size_t NBREBITMAX = 4;
     const unsigned SEED = 67;
+    const vector<string> exporter = {
+       "C:/Users/calum/OneDrive/Documents/Etudes/HEIG/Semestre2/ASD/Laboratoires/ASD2023-L3-Tris/rapport/csv/Croissant.csv",
+       "C:/Users/calum/OneDrive/Documents/Etudes/HEIG/Semestre2/ASD/Laboratoires/ASD2023-L3-Tris/rapport/csv/Decroissant.csv",
+       "C:/Users/calum/OneDrive/Documents/Etudes/HEIG/Semestre2/ASD/Laboratoires/ASD2023-L3-Tris/rapport/csv/Aleatoire.csv",
+       "C:/Users/calum/OneDrive/Documents/Etudes/HEIG/Semestre2/ASD/Laboratoires/ASD2023-L3-Tris/rapport/csv/PresqueTrie.csv"
+    };
 
     //Vecteurs pour emregistrer les résultats des mesures
     vector<int> valeurs(TAILLEFIN - TAILLEDEBUT + 1);
@@ -40,7 +46,7 @@ int main() {
     cout << "######################" << endl;
 
     for (int i = 0; i < NBRETYPEVECTEURS; ++i) {
-        for (int n = TAILLEDEBUT; n < TAILLEFIN; ++n) {
+        for (int n = TAILLEDEBUT; n <= TAILLEFIN; ++n) {
 
             valeurs[size_t(n - 1)] = (unsigned)pow(10.,(double)n);
 
@@ -58,9 +64,14 @@ int main() {
             mesures[4].push_back(mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 8>));
             mesures[5].push_back(mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 16>));
         }
+        //Exporter les résultats en CSV et vider le vecteur pour le prochain type de vecteur
+        exporter_csv<double>(exporter[i],valeurs,mesures);
+        for (size_t i = 0; i < mesures.size(); ++i) {
+           mesures[i].clear();
+        }
     }
 
-    exporter_csv<double>("C:/Users/calum/OneDrive/Documents/Etudes/HEIG/Semestre2/ASD/Laboratoires/ASD2023-L3-Tris/rapport/csv/example.csv",valeurs,mesures);
+
 
     cout << endl << endl;
 
