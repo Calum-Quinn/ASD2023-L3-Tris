@@ -49,6 +49,8 @@ int main() {
 
             vector<unsigned> vTriBase = generateVector<unsigned>((size_t)pow(10.,(double)n), SEED, typeTri(i));
 
+            cout << "Tri rapide fini" << endl;
+
             //Effectue les mesures pour les différentes taille de bloc de bits
             mesures[1].push_back(mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 1>));
             mesures[2].push_back(mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 2>));

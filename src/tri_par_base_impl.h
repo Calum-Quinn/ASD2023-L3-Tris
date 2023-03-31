@@ -15,6 +15,8 @@ Compilateurs   : Apple clang version 14.0.0 (clang-1400.0.29.102) (Dario)
 #include <algorithm>
 #include <cmath>
 
+#include "some_bits.h"
+
 
 using namespace std;
 
@@ -32,7 +34,7 @@ void tri_comptage(Iterator first, Iterator last, Iterator output_first, Fn index
 
     index = 1;
 
-    for (size_t i = 0; i < 10; ++i) {
+    for (size_t i = 0; i < compteurs.size(); ++i) {
         temporaire = compteurs[i];
         compteurs[i] = index;
         index += temporaire;
