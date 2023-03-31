@@ -18,6 +18,8 @@ Sinon, le tri par base 16 bits est le plus rapide.
 
 ![croissant](svg/Croissant.svg)
 
+[CSV Croissant](csv/Croissant.csv)
+
 ### Vecteur décroissant
 
 Le graphe du temps de calcul pour un vecteur décroissant est étonnamment similaire à celui pour un vecteur croissant.
@@ -25,6 +27,8 @@ Le graphe du temps de calcul pour un vecteur décroissant est étonnamment simil
 Le classement des différents tri reste dans le même ordre est ne subit qu'une très légère modification dans ses valeurs.
 
 ![decroissant](svg/Decroissant.svg)
+
+[CSV Décroissant](csv/Decroissant.csv)
 
 ### Vecteur aléatoire
 
@@ -36,6 +40,8 @@ Les autres restent globalement très similaire.
 
 ![aleatoire](svg/Aleatoire.svg)
 
+[CSV Aleatoire](csv/Aleatoire.csv)
+
 ### Vecteur presque trié
 
 Pour ce dernier graphe, le tri rapide est une fois de plus derrière le tri par base avec blocs de 4 bits.
@@ -44,6 +50,8 @@ On voit maintenant que tous les graphes se ressemblent énormément.
 
 ![presquetrie](svg/PresqueTrie.svg)
 
+[CSV Presque Trié](csv/PresqueTrie.csv)
+
 ### Tous les vecteurs
 
 Tous les graphes se ressemblent énormément ce qui montre que les tris choisis ne sont pas particulièrement optimisé pour un certain type de vecteur.
@@ -51,9 +59,6 @@ Tous les graphes se ressemblent énormément ce qui montre que les tris choisis 
 Ceci veut donc aussi dire que les algorithmes ont une valeur moyenne de temps de calcul qui reste stable peu importe le type de vecteur qu'on lui donne.
 
 Les graphes nous montrent que pour peu d'éléments (environ 10 - 10'000) le temps de calcul est négligeable. Cependant dès qu'on a plus d'éléments le temps de calcul croit rapidement.
-
-
-[CSV Mesures](csv/mesure_temp.csv)
 
 ## Conclusion
 
