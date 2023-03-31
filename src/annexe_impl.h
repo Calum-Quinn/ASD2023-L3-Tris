@@ -64,35 +64,71 @@ std::vector<T> generateVector(size_t n, const unsigned seed, typeTri tri) {
 template <typename T>
 void exporter_csv(std::string const& filename, const std::vector<int>& n_values, const std::vector<std::vector<T>>& mesures) {
 
-    std::ofstream out(filename);
+	const vector<string> titres = {"Vecteur croissant", "Vecteur decroisant",
+											 "Vecteur aleatoire", "Vecteur presque trie"};
+
+	const vector<string> tries = {"Tri rapide", "TriParBase 1 bit",
+											"TriParBase 2 bits", "TriParBase 4 bits",
+											"TriParBase 8 bits", "TriParBase 16 bits"};
+
+	std::ofstream out(filename);
 
     if(not out.is_open()) {
         std::cerr << "Pas pu ouvrir le fichier en écriture" << std::endl;
         return;
     }
 
-    out << "n";
+	 for(size_t i = 0; i < titres.size(); ++i) {
+		 out << titres.at(i);
 
-    for(int n : n_values)
-        out << ";" << n;
+		 out << std::endl << std::endl;
 
-    out << std::endl;
+		 out << "n";
 
-    for(size_t i = 0; i < mesures.size(); ++i) {
-        switch (i) {
-            case 0 : out << "TriRapide"; break;
-            case 1 : out << "TriParBase 1 bit"; break;
-            case 2 : out << "TriParBase 2 bits"; break;
-            case 3 : out << "TriParBase 4 bits"; break;
-            case 4 : out << "TriParBase 8 bits"; break;
-            case 5 : out << "TriParBase 16 bits"; break;
-            default: break;
-        }
+		 for (int n: n_values)
+			 out << ";" << n;
 
-        for (T d : mesures[i])
-            out << ";" << d;
-            out << std::endl;
-        }
+		 out << std::endl;
+
+		 //for (size_t i = 0; i < mesures.at(titre).size(); ++i) {
+
+		 for(string trie : tries){
+			 //Parcours le vecteur afin d'afficher ses valeurs dans le fichier csv
+			 for (T d: mesures[i])
+				 out << ";" << d;
+
+			 out << std::endl;
+		 }
+			/* switch (i) {
+				 case 0 :
+					 out << "TriRapide";
+					 break;
+				 case 1 :
+					 out << "TriParBase 1 bit";
+					 break;
+				 case 2 :
+					 out << "TriParBase 2 bits";
+					 break;
+				 case 3 :
+					 out << "TriParBase 4 bits";
+					 break;
+				 case 4 :
+					 out << "TriParBase 8 bits";
+					 break;
+				 case 5 :
+					 out << "TriParBase 16 bits";
+					 break;
+				 default:
+					 break;
+			 }
+			*/
+
+		// }
+
+		 out << std::endl;
+
+	 }
+
 
 }
 
