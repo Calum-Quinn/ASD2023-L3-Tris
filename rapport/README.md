@@ -24,7 +24,7 @@ Sinon, le tri par base 16 bits est le plus rapide.
 
 Le graphe du temps de calcul pour un vecteur décroissant est étonnamment similaire à celui pour un vecteur croissant.
 
-Le classement des différents tri reste dans le même ordre est ne subit qu'une très légère modification dans ses valeurs.
+Le classement des différents tri reste dans le même ordre et ne subit qu'une très légère modification dans ses valeurs.
 
 ![decroissant](svg/Decroissant.svg)
 
@@ -34,7 +34,7 @@ Le classement des différents tri reste dans le même ordre est ne subit qu'une 
 
 Une fois de plus le graphe ressemble aux deux précédents.
 
-Cependant, cette fois le tri rapide est devancé par le tri par base avec des blocs de 4 bits alors que pour les deux autres type de vecteur il était devant.
+Cependant, cette fois-ci le tri rapide est devancé par le tri par base avec des blocs de 4 bits alors que pour les deux autres type de vecteur, il était devant.
 
 Les autres restent globalement très similaire.
 
@@ -44,7 +44,7 @@ Les autres restent globalement très similaire.
 
 ### Vecteur presque trié
 
-Pour ce dernier graphe, le tri rapide est une fois de plus derrière le tri par base avec blocs de 4 bits.
+Pour ce dernier graphe, le tri rapide est une fois de plus derrière le tri par base avec des blocs de 4 bits.
 
 On voit maintenant que tous les graphes se ressemblent énormément.
 
@@ -54,14 +54,14 @@ On voit maintenant que tous les graphes se ressemblent énormément.
 
 ### Tous les vecteurs
 
-Tous les graphes se ressemblent énormément ce qui montre que les tris choisis ne sont pas particulièrement optimisé pour un certain type de vecteur.
+Tous les graphes se ressemblent énormément ce qui montre que les tris choisis ne sont pas particulièrement optimisés pour un certain type de vecteur.
 
 Ceci veut donc aussi dire que les algorithmes ont une valeur moyenne de temps de calcul qui reste stable peu importe le type de vecteur qu'on lui donne.
 
-Les graphes nous montrent que pour peu d'éléments (environ 10 - 10'000) le temps de calcul est négligeable. Cependant dès qu'on a plus d'éléments le temps de calcul croit rapidement.
+De plus, les graphes nous montrent que pour peu d'éléments (environ 10 - 10'000) le temps de calcul est négligeable. Cependant dès qu'on a plus d'éléments le temps de calcul croit rapidement.
 
 ## Conclusion
 
 On peut conclure de ces graphes que ces deux algorithmes sont très eficaces pour différents type de données surtout lorsqu'il y a moins de 10'000 éléments.
 
-Pour peu d'éléments la différence d'efficacité entre les deux tris ne se remarque pas. Si on a beaucoup d'éléments à trier il vaut mieux choisir un tri par base avec des blocs de bits conséquents péutôt qu'un tri rapide.
+Pour peu d'éléments la différence d'efficacité entre les deux tris ne se remarque pas. Si on a beaucoup d'éléments à trier il vaut mieux choisir un tri par base avec des blocs de bits conséquents plutôt qu'un tri rapide.
