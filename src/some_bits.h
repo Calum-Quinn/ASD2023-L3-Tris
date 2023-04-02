@@ -1,7 +1,7 @@
 #ifndef SOME_BITS
 #define SOME_BITS
 
-#include <stddef.h>
+#include <cstddef>
 
 template<typename T>
 class SomeBits {

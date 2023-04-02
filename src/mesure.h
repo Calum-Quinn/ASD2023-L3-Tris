@@ -16,7 +16,7 @@ Compilateurs   : Apple clang version 14.0.0 (clang-1400.0.29.102) (Dario)
 /**
  * @name 	            : mesure_temps
  *
- * @but 	            : mesure le temps que prends une fonction pour trier un vecteur
+ * @but 	               : mesure le temps que prends une fonction pour trier un vecteur
  * @param v1            : vecteur à trier
  * @param f             : fonction de tri à évaluer
  * @return              : temps de tri

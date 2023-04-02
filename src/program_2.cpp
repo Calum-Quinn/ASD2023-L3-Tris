@@ -26,8 +26,6 @@ int main() {
     const int TAILLEDEBUT = 1;
     const int TAILLEFIN = 6;
     const int NBRETYPEVECTEURS = 4;
-    const size_t NBREBITMIN = 0;
-    const size_t NBREBITMAX = 4;
     const unsigned SEED = 67;
     const vector<string> exporter = {
        "C:/Users/calum/OneDrive/Documents/Etudes/HEIG/Semestre2/ASD/Laboratoires/ASD2023-L3-Tris/rapport/csv/Croissant.csv",
@@ -48,7 +46,7 @@ int main() {
     for (int i = 0; i < NBRETYPEVECTEURS; ++i) {
         for (int n = TAILLEDEBUT; n <= TAILLEFIN; ++n) {
 
-            valeurs[size_t(n - 1)] = (unsigned)pow(10.,(double)n);
+            valeurs[size_t(n - 1)] = (int)pow(10.,(double)n);
 
             vector<unsigned> vTriRapide = generateVector<unsigned>((size_t)pow(10.,(double)n), SEED, typeTri(i));
             mesures[0].push_back(mesure_temps(vTriRapide, tri_rapide<vector<unsigned>::iterator>));
@@ -65,9 +63,9 @@ int main() {
             mesures[5].push_back(mesure_temps(vTriBase, tri_par_base<vector<unsigned>::iterator, 16>));
         }
         //Exporter les résultats en CSV et vider le vecteur pour le prochain type de vecteur
-        exporter_csv<double>(exporter[i],valeurs,mesures);
-        for (size_t i = 0; i < mesures.size(); ++i) {
-           mesures[i].clear();
+        exporter_csv<double>(exporter[size_t(i)],valeurs,mesures);
+        for (vector<double>& mesure : mesures) {
+           mesure.clear();
         }
     }
 

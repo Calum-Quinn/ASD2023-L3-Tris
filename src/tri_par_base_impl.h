@@ -34,9 +34,9 @@ void tri_comptage(Iterator first, Iterator last, Iterator output_first, Fn index
 
     index = 1;
 
-    for (size_t i = 0; i < compteurs.size(); ++i) {
-        temporaire = compteurs[i];
-        compteurs[i] = index;
+    for (unsigned& compteur : compteurs) {
+        temporaire = compteur;
+        compteur = index;
         index += temporaire;
     }
 
