@@ -10,7 +10,7 @@ Le tri par base sera divisé par groupe de 1, 2, 4, 8 et 16 bits.
 
 ### Vecteur croissant
 
-Le tri rapide est plus rapide que le tri par base avec des blocs de 1 et 2 bits.
+Le tri rapide est plus rapide que le tri par base avec des blocs de 1, 2 et 4 bits.
 
 Cela est dû au fait que les nombres dans le vecteur sont de 3 bits maximum, donc le tri par base prendra plus de temps à s'effectuer.
 
